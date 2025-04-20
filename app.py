@@ -1,6 +1,3 @@
-#####################################################################
-#### app.py ####
-
 from flask import Flask, request, jsonify
 from sklearn.linear_model import LinearRegression
 import numpy as np
@@ -14,7 +11,6 @@ X = np.array([
     [1, 27.3], [0, 24.5], [0, 22.9], [1, 18.4], [0, 24.2],
     [1, 21.0], [0, 25.9], [0, 23.2], [1, 21.6], [1, 22.8]
 ])
-
 y= np.array([137, 118, 124, 124, 120, 129, 122, 142, 128, 114,
             132, 130, 130, 112, 132, 117, 134, 132, 121, 128])
 
@@ -30,7 +26,9 @@ def predict():
     with open("output.txt", "w") as f:
         f.write(f"Input: w={w}, x={x}\nPrediction: {y_pred}\n")
 
-    return jsonify({"w": w, "x": x, "prediction": y_pred})
+    return jsonify({"w": w, 
+                    "x": x, 
+                    "prediction": y_pred})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
