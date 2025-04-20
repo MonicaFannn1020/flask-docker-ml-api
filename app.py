@@ -19,7 +19,7 @@ model = LinearRegression().fit(X, y)
 @app.route("/predict")
 def predict():
     w = float(request.args.get("w", 0))
-    x = float(request.args.get("x", 0))
+    x = float(request.args.get("x", 20))
     y_pred = model.predict([[w, x]])[0]
     
     # Log prediction
